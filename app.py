@@ -31,6 +31,9 @@ def mails(dz,zt,nr):
 def index():
     return render_template('index.html')
 
+@app.route('/rt',methods=['GET','POST'])
+def rt():
+    return render_template('rt.html')
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)
