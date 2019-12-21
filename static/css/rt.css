@@ -1,3 +1,17 @@
-.form-control2{
 
+ul{
+
+    list-style: none;
+}
+.from{
+    color: #259;
+    font-weight: 900;
+}
+.zt{
+
+    font-weight: 900;
+}
+ul li{
+    border-bottom: 1px solid #3f3f3f;
+    margin-top: 10px;
 }

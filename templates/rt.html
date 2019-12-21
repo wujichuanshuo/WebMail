@@ -1,6 +1,26 @@
 {% extends 'base.html' %}
 {% block title %}收件箱{% endblock %}
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/rt.css') }}"
+          xmlns:width="http://www.w3.org/1999/xhtml" xmlns:width="http://www.w3.org/1999/xhtml">
+{% endblock %}
 {% block main %}
-    <form action="" method="post">
+<ul>
+{% for one in a %}
+<li>
+    <div class="avatar-group">
+        <div>
+            <p class="zt">from:</p>
+        <p class="from">{{ one.fo }}</p>
+            </div>
+        <p class="zt">主题：</p>
+        <p class="zt">{{ one.zt }}</p>
+        <p class="zt">正文：</p>
+        <p class="nr">{{ one.ms }}</p>
+    </div>
+</li>
+{% endfor %}
 
+
+</ul>
 {% endblock %}

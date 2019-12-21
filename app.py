@@ -28,9 +28,10 @@ def sendmails(dz,zt,nr):
     mail.send(message)
 
 
-@app.route('/mail/<dz>/<zt>/<nr>')
-def mails(dz,zt,nr):
-    sendmails(dz,zt,nr)
+@app.route('/mail')
+def mailll():
+    for i in range(0,25):
+        sendmails('710977702@qq.com',str(i),str(i))
     return '邮件发送中......'
 
 @app.route('/',methods=['GET','POST'])
@@ -55,9 +56,13 @@ def index():
 def rt():
     if request.method == 'GET':
         a=mails.pp3()
-        for i in range(0,):
-            print(a[i].to+'     '+a[i].fo+"        "+a[i].ms)
-        return render_template('rt.html')
+        for i in range(0,10):
+            #print(a[i].to+'     '+a[i].fo)
+            print(a[i].ms)
+        context = {
+            'a' : a
+        }
+        return render_template('rt.html',**context)
 
 if __name__ == '__main__':
     app.run(debug=True)
