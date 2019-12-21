@@ -1,13 +1,20 @@
 #encoding: utf-8
 from flask import Flask, render_template, request
 import  confing
-app = Flask(__name__)
-app.config.from_object(confing)
-
 from flask_mail import Mail, Message
+import mails
+
+
 
 app = Flask(__name__)
-
+app.config['MAIL_SERVER'] = "smtp.qq.com"
+app.config['MAIL_PORT'] = 465
+app.config['MAIL_USE_SSL'] = True
+app.config['MAIL_USERNAME'] = "710977702@qq.com"
+# 这里的密码是你在邮箱中的授权码
+app.config['MAIL_PASSWORD'] = "ektbjesoxjimbcec"
+# 显示发送人的名字
+app.config['MAIL_DEFAULT_SENDER'] = '710977702<710977702@qq.com>'
 
 mail = Mail(app)
 
@@ -41,11 +48,15 @@ def index():
         print(str(zt))
         print(str(nr))
         sendmails(dz,zt,nr)
+        return render_template('success.html')
 
 
 @app.route('/rt',methods=['GET','POST'])
 def rt():
     if request.method == 'GET':
+        a=mails.pp3()
+        for i in range(0,):
+            print(a[i].to+'     '+a[i].fo+"        "+a[i].ms)
         return render_template('rt.html')
 
 if __name__ == '__main__':
