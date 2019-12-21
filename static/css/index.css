@@ -8,3 +8,15 @@
     width: 90%;
     height: 200px;
 }
+.from-control3{
+    width: 100%;
+    overflow: auto;
+    word-break: break-all; //解决兼容问题
+}
+.form-group2{
+    width: 300px;
+    margin: 0 auto;
+}
+.box{
+    writing-mode:tb-rl;
+}

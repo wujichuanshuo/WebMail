@@ -1,3 +1,32 @@
 {% extends 'base.html' %}
 {% block title %}发件{% endblock %}
-{% block main %}  {% endblock %}
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/index.css') }}"
+          xmlns:width="http://www.w3.org/1999/xhtml" xmlns:width="http://www.w3.org/1999/xhtml">
+{% endblock %}
+{% block main %}
+    <div class="form-group2">
+<form action="" method="post">
+        <form>
+      <div class="form-group">
+        <label for="exampleInputEmail1">TO:</label>
+        <input type="email" class="form-control" name="dz" placeholder="Email address">
+      </div>
+            <div class="form-group" >
+                <label for="exampleInputEmail1">请输入主题：</label>
+                <input type="text" class="form-control" name="zt" placeholder="主题" >
+            </div>
+            <div >
+                <label for="textarea">请输入内容：</label>
+                </div>
+                <textarea  name="nr" placeholder="content" style="background: #f3f3f3" cols="40" rows="20" class="from-control3"></textarea>
+      <div class="form-group">
+        <label for="exampleInputFile">上传附件</label>
+        <input type="file" id="exampleInputFile">
+        <p class="help-block">无文件上传</p>
+      </div>
+      <button type="submit" class="btn btn-default btn-block">发送</button>
+    </form>
+</form>
+    </div>
+{% endblock %}

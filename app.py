@@ -1,5 +1,5 @@
 #encoding: utf-8
-from flask import Flask,render_template
+from flask import Flask, render_template, request
 import  confing
 app = Flask(__name__)
 app.config.from_object(confing)
@@ -21,19 +21,32 @@ def sendmails(dz,zt,nr):
     mail.send(message)
 
 
-
 @app.route('/mail/<dz>/<zt>/<nr>')
 def mails(dz,zt,nr):
     sendmails(dz,zt,nr)
     return '邮件发送中......'
 
-@app.route('/')
+@app.route('/',methods=['GET','POST'])
 def index():
-    return render_template('index.html')
+    if request.method == 'GET':
+        return render_template('index.html')
+    else:
+        dz = request.form.get('dz')
+        zt = request.form.get('zt')
+        nr = request.form.get('nr')
+        dz = str(dz)
+        zt = str(zt)
+        nr = str(nr)
+        print(str(dz))
+        print(str(zt))
+        print(str(nr))
+        sendmails(dz,zt,nr)
+
 
 @app.route('/rt',methods=['GET','POST'])
 def rt():
-    return render_template('rt.html')
+    if request.method == 'GET':
+        return render_template('rt.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
