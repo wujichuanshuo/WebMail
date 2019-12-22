@@ -38,7 +38,7 @@ def pp3():
     # data保存该邮件的内容
     i=0
     a=list()
-    for i in range(0,10):
+    for i in range(0,len(mails)):
         resp, data, octets  = conn.retr(len(mails)-i)
         # 将data的所有数据（原本是一个字节列表）拼接在一起
         msg_data = b'\r\n'.join(data)
